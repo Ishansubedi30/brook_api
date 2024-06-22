@@ -13,9 +13,11 @@ class Book extends Model
         'book_name',
         'author',
         'published_date',
-        'file', // Assuming you're storing file path or blob in another way
+        'book_image', // Assuming you're storing file path or blob in another way
         'genres',
         'rating',
+        'created_at',
+        'updated_at',
     ];
 
     // Additional model relationships or methods can be defined here

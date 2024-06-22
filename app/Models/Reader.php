@@ -16,6 +16,8 @@ class Reader extends Model
         'password',
         'countrycode',
         'mobile_number',
+        'created_at',
+        'updated_at',
     ];
 
     // Additional model relationships or methods can be defined here

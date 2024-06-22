@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('book_name');
             $table->string('author');
             $table->date('published_date');
-            $table->binary('file'); // blob type
+            $table->string('book_image')->nullable();
             $table->enum('genres', ['Fiction', 'Non-fiction', 'Fantasy', 'Sci-fi', 'Mystery', 'Romance']); // enum type
             $table->decimal('rating', 3, 1); // Decimal with 3 digits in total and 1 digit after the decimal point
             $table->timestamps();
@@ -31,3 +31,4 @@ return new class extends Migration
         Schema::dropIfExists('books');
     }
 };
+

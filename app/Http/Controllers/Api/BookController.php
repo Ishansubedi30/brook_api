@@ -21,7 +21,7 @@ class BookController extends Controller
             'book_name' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'published_date' => 'required|date',
-            'file' => 'nullable|file',
+            'book_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'genres' => 'required|in:Fiction,Non-fiction,Fantasy,Sci-fi,Mystery,Romance',
             'rating' => 'required|numeric|between:0,5',
         ]);
@@ -49,7 +49,6 @@ class BookController extends Controller
             'book_name' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'published_date' => 'required|date',
-            'file' => 'nullable|file',
             'genres' => 'required|in:Fiction,Non-fiction,Fantasy,Sci-fi,Mystery,Romance',
             'rating' => 'required|numeric|between:0,5',
         ]);

@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Analytics extends Model
+class Book extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'book_id',
-        'user_id',
-        'percentage_read',
-        'genres',
+        'book_if',
+        'is_active',
+        'file', // Assuming you're storing file path or blob in another way
         'created_at',
         'updated_at',
     ];
