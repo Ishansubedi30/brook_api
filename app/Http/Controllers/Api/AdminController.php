@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\ValidationException;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $admin = Admin::all();
+        $admins = Admin::all();
         return response()->json(['admins' => $admins], 200);
     }
 
@@ -62,8 +61,10 @@ class AdminController extends Controller
             'mobile_number' => 'sometimes|required|string|max:20',
         ]);
 
-        if (isset($validatedData['password'])) {
+        if (!empty($validatedData['password'])) {
             $validatedData['password'] = Hash::make($validatedData['password']);
+        } else {
+            unset($validatedData['password']); // Do not update the password if it's not provided
         }
 
         $admin->update($validatedData);

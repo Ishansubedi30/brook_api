@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Reader;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\ValidationException;
 
 class ReaderController extends Controller
 {
@@ -29,57 +28,44 @@ class ReaderController extends Controller
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        $readers = Reader::create($validatedData);
+        $reader = Reader::create($validatedData);
 
-        return response()->json(['message' => 'Reader created successfully', 'readers' => $readers], 201);
+        return response()->json(['message' => 'Reader created successfully', 'reader' => $reader], 201);
     }
 
     public function show($id)
     {
-        $readers = Reader::find($id);
+        $reader = Reader::findOrFail($id);
 
-        if (!$readers) {
-            return response()->json(['message' => 'Reader not found'], 404);
-        }
-
-        return response()->json(['readers' => $readers], 200);
+        return response()->json(['reader' => $reader], 200);
     }
 
     public function update(Request $request, $id)
     {
-        $readers = Reader::find($id);
-
-        if (!$readers) {
-            return response()->json(['message' => 'Reader not found'], 404);
-        }
+        $reader = Reader::findOrFail($id);
 
         $validatedData = $request->validate([
-            'fullname' => 'sometimes|required|string|max:255',
-            'username' => 'sometimes|required|string|unique:readers,username,' . $id . '|max:255',
-            'email' => 'sometimes|required|string|email|unique:readers,email,' . $id . '|max:255',
-            'password' => 'sometimes|nullable|string|min:8',
-            'countrycode' => 'sometimes|required|string|max:10',
-            'mobile_number' => 'sometimes|required|string|max:20',
+            'fullname' => 'sometimes|string|max:255',
+            'username' => 'sometimes|string|unique:readers,username,' . $id . '|max:255',
+            'email' => 'sometimes|string|email|unique:readers,email,' . $id . '|max:255',
+            'password' => 'sometimes|string|min:8',
+            'countrycode' => 'sometimes|string|max:10',
+            'mobile_number' => 'sometimes|string|max:20',
         ]);
 
         if (isset($validatedData['password'])) {
             $validatedData['password'] = Hash::make($validatedData['password']);
         }
 
-        $readers->update($validatedData);
+        $reader->update($validatedData);
 
-        return response()->json(['message' => 'Reader updated successfully', 'readers' => $readers], 200);
+        return response()->json(['message' => 'Reader updated successfully', 'reader' => $reader], 200);
     }
 
     public function destroy($id)
     {
-        $readers = Reader::find($id);
-
-        if (!$readers) {
-            return response()->json(['message' => 'Reader not found'], 404);
-        }
-
-        $readers->delete();
+        $reader = Reader::findOrFail($id);
+        $reader->delete();
 
         return response()->json(['message' => 'Reader deleted successfully'], 200);
     }
