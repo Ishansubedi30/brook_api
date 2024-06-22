@@ -1,11 +1,19 @@
 <?php
 
 use App\Http\Controllers\Api\ReaderController;
+use App\Http\Controllers\Api\AdminController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\AnalyticsController;
 use App\Http\Controllers\Api\BookFileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+// Readers routes
+Route::get('/readers', [AdminController::class, 'index']);
+Route::post('/readers', [AdminController::class, 'store']);
+Route::get('/readers/{id}', [AdminController::class, 'show']);
+Route::put('/readers/{id}', [AdminController::class, 'update']);
+Route::delete('/readers/{id}', [AdminController::class, 'destroy']);
 
 // Readers routes
 Route::get('/readers', [ReaderController::class, 'index']);

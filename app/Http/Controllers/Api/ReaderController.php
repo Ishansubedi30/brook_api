@@ -29,27 +29,27 @@ class ReaderController extends Controller
 
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        $reader = Reader::create($validatedData);
+        $readers = Reader::create($validatedData);
 
-        return response()->json(['message' => 'Reader created successfully', 'reader' => $reader], 201);
+        return response()->json(['message' => 'Reader created successfully', 'readers' => $readers], 201);
     }
 
     public function show($id)
     {
-        $reader = Reader::find($id);
+        $readers = Reader::find($id);
 
-        if (!$reader) {
+        if (!$readers) {
             return response()->json(['message' => 'Reader not found'], 404);
         }
 
-        return response()->json(['reader' => $reader], 200);
+        return response()->json(['readers' => $readers], 200);
     }
 
     public function update(Request $request, $id)
     {
-        $reader = Reader::find($id);
+        $readers = Reader::find($id);
 
-        if (!$reader) {
+        if (!$readers) {
             return response()->json(['message' => 'Reader not found'], 404);
         }
 
@@ -66,20 +66,20 @@ class ReaderController extends Controller
             $validatedData['password'] = Hash::make($validatedData['password']);
         }
 
-        $reader->update($validatedData);
+        $readers->update($validatedData);
 
-        return response()->json(['message' => 'Reader updated successfully', 'reader' => $reader], 200);
+        return response()->json(['message' => 'Reader updated successfully', 'readers' => $readers], 200);
     }
 
     public function destroy($id)
     {
-        $reader = Reader::find($id);
+        $readers = Reader::find($id);
 
-        if (!$reader) {
+        if (!$readers) {
             return response()->json(['message' => 'Reader not found'], 404);
         }
 
-        $reader->delete();
+        $readers->delete();
 
         return response()->json(['message' => 'Reader deleted successfully'], 200);
     }
