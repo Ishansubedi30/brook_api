@@ -1,0 +1,107 @@
+Title,Author,Genre,Publication_Year,Rating
+To Kill a Mockingbird,Harper Lee,Fiction,1960,4.27
+1984,George Orwell,Dystopian,1949,4.17
+Pride and Prejudice,Jane Austen,Romance,1813,4.26
+The Great Gatsby,F. Scott Fitzgerald,Fiction,1925,3.91
+The Catcher in the Rye,J.D. Salinger,Fiction,1951,3.80
+The Hobbit,J.R.R. Tolkien,Fantasy,1937,4.27
+Harry Potter and the Philosophers Stone,J.K. Rowling,Fantasy,1997,4.47
+The Da Vinci Code,Dan Brown,Thriller,2003,3.89
+The Alchemist,Paulo Coelho,Fantasy,1988,3.88
+The Fault in Our Stars,John Green,Young Adult,2012,4.14
+Brave New World,Aldous Huxley,Dystopian,1932,3.99
+Moby Dick,Herman Melville,Adventure,1851,3.49
+War and Peace,Leo Tolstoy,Historical,1869,4.11
+The Book Thief,Markus Zusak,Historical,2005,4.37
+Gone Girl,Gillian Flynn,Thriller,2012,4.09
+The Shining,Stephen King,Horror,1977,4.24
+Dracula,Bram Stoker,Horror,1897,3.99
+The Road,Cormac McCarthy,Post-Apocalyptic,2006,4.07
+Frankenstein,Mary Shelley,Science Fiction,1818,3.82
+The Hitchhikers Guide to the Galaxy,Douglas Adams,Science Fiction,1979,4.22
+Life of Pi,Yann Martel,Adventure,2001,3.93
+The Girl with the Dragon Tattoo,Stieg Larsson,Thriller,2005,4.13
+Jane Eyre,Charlotte Brontë,Romance,1847,4.12
+Crime and Punishment,Fyodor Dostoevsky,Philosophical,1866,4.20
+The Secret Garden,Frances Hodgson Burnett,Childrens,1911,4.13
+Wuthering Heights,Emily Brontë,Gothic,1847,3.84
+The Time Machine,H.G. Wells,Science Fiction,1895,3.88
+The Handmaids Tale,Margaret Atwood,Dystopian,1985,4.13
+Beloved,Toni Morrison,Historical,1987,3.89
+The Old Man and the Sea,Ernest Hemingway,Adventure,1952,3.79
+Little Women,Louisa May Alcott,Childrens,1868,4.07
+Animal Farm,George Orwell,Satire,1945,3.95
+The Picture of Dorian Gray,Oscar Wilde,Gothic,1890,4.09
+The Kite Runner,Khaled Hosseini,Historical,2003,4.30
+The Hunger Games,Suzanne Collins,Dystopian,2008,4.33
+The Count of Monte Cristo,Alexandre Dumas,Adventure,1844,4.24
+Catch-22,Joseph Heller,Satire,1961,3.98
+The Outsiders,S.E. Hinton,Young Adult,1967,4.11
+A Tale of Two Cities,Charles Dickens,Historical,1859,3.85
+Great Expectations,Charles Dickens,Fiction,1861,3.77
+The Brothers Karamazov,Fyodor Dostoevsky,Philosophical,1880,4.32
+Don Quixote,Miguel de Cervantes,Classic,1605,3.87
+Anna Karenina,Leo Tolstoy,Romance,1877,4.06
+Ulysses,James Joyce,Modernist,1922,3.74
+The Grapes of Wrath,John Steinbeck,Historical,1939,3.96
+One Hundred Years of Solitude,Gabriel Garcia Marquez,Magical Realism,1967,4.08
+The Divine Comedy,Dante Alighieri,Classic,1320,4.10
+Les Misérables,Victor Hugo,Historical,1862,4.19
+The Odyssey,Homer,Classic,800 BC,3.75
+The Iliad,Homer,Classic,750 BC,3.88
+Madame Bovary,Gustave Flaubert,Classic,1856,3.64
+The Adventures of Huckleberry Finn,Mark Twain,Adventure,1884,3.82
+Sense and Sensibility,Jane Austen,Romance,1811,4.08
+Emma,Jane Austen,Romance,1815,4.02
+The Adventures of Sherlock Holmes,Arthur Conan Doyle,Mystery,1892,4.31
+The Chronicles of Narnia,C.S. Lewis,Fantasy,1950,4.27
+Rebecca,Daphne du Maurier,Gothic,1938,4.22
+Fahrenheit 451,Ray Bradbury,Dystopian,1953,3.99
+Slaughterhouse-Five,Kurt Vonnegut,Science Fiction,1969,4.08
+East of Eden,John Steinbeck,Historical,1952,4.37
+The Metamorphosis,Franz Kafka,Philosophical,1915,3.85
+The Catcher in the Rye,J.D. Salinger,Fiction,1951,3.80
+The Bell Jar,Sylvia Plath,Modernist,1963,4.01
+Lord of the Flies,William Golding,Dystopian,1954,3.68
+The Scarlet Letter,Nathaniel Hawthorne,Historical,1850,3.38
+The Giver,Lois Lowry,Dystopian,1993,4.13
+The Shadow of the Wind,Carlos Ruiz Zafón,Mystery,2001,4.30
+A Clockwork Orange,Anthony Burgess,Dystopian,1962,3.98
+The Sun Also Rises,Ernest Hemingway,Fiction,1926,3.80
+Murder on the Orient Express,Agatha Christie,Mystery,1934,4.18
+To the Lighthouse,Virginia Woolf,Modernist,1927,3.79
+The Trial,Franz Kafka,Philosophical,1925,3.97
+The Stranger,Albert Camus,Philosophical,1942,4.01
+Dune,Frank Herbert,Science Fiction,1965,4.23
+Atlas Shrugged,Ayn Rand,Philosophical,1957,3.67
+The Fountainhead,Ayn Rand,Philosophical,1943,3.87
+The Call of the Wild,Jack London,Adventure,1903,3.87
+The Secret History,Donna Tartt,Thriller,1992,4.11
+The Goldfinch,Donna Tartt,Fiction,2013,3.91
+The Master and Margarita,Mikhail Bulgakov,Fantasy,1967,4.30
+Mansfield Park,Jane Austen,Romance,1814,3.83
+Love in the Time of Cholera,Gabriel Garcia Marquez,Romance,1985,3.92
+In Cold Blood,Truman Capote,True Crime,1966,4.05
+Middlemarch,George Eliot,Fiction,1871,4.03
+A Prayer for Owen Meany,John Irving,Fiction,1989,4.24
+Lolita,Vladimir Nabokov,Classic,1955,3.92
+The Road Less Traveled,M. Scott Peck,Self-Help,1978,4.07
+The Stand,Stephen King,Horror,1978,4.34
+Catch-22,Joseph Heller,Satire,1961,3.98
+The Wind-Up Bird Chronicle,Haruki Murakami,Magical Realism,1994,4.14
+Norwegian Wood,Haruki Murakami,Romance,1987,4.02
+Gone with the Wind,Margaret Mitchell,Historical,1936,4.30
+David Copperfield,Charles Dickens,Classic,1850,3.99
+Winnie-the-Pooh,A.A. Milne,Childrens,1926,4.35
+Treasure Island,Robert Louis Stevenson,Adventure,1883,3.84
+The Little Prince,Antoine de Saint-Exupéry,Fable,1943,4.32
+The Lion, the Witch and the Wardrobe,C.S. Lewis,Fantasy,1950,4.27
+The Secret Garden,Frances Hodgson Burnett,Childrens,1911,4.13
+Tess of the dUrbervilles,Thomas Hardy,Classic,1891,3.80
+The Wind in the Willows,Kenneth Grahame,Childrens,1908,4.08
+The Godfather,Mario Puzo,Crime,1969,4.34
+Dr. Jekyll and Mr. Hyde,Robert Louis Stevenson,Gothic,1886,3.84
+Anne of Green Gables,Lucy Maud Montgomery,Childrens,1908,4.24
+The Scarlet Pimpernel,Baroness Orczy,Historical,1905,4.12
+Bleak House,Charles Dickens,Fiction,1853,3.98
+The House of the Spirits,Isabel Allende,Magical Realism,1982,4.21

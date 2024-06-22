@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
+
 
 use Illuminate\Http\Request;
 use App\Models\Reader;
+use App\Http\Controllers\Controller;
 
 class ReaderController extends Controller
 {

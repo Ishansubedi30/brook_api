@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Models\Analytics;
+use App\Http\Controllers\Controller;
+
 
 class AnalyticsController extends Controller
 {
