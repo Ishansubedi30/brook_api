@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load the dataset
+# Load the dataset  Content-Based Filtering
 books_df = pd.read_csv('books.csv')
 
 # Clean the data (if necessary), e.g., handling missing values
@@ -43,7 +43,7 @@ def recommend_books(title, cosine_sim=cosine_sim, books_df=books_df, top_n=5):
 
 
 # Example usage
-target_book = 'The Divine Comedy'  # Replace with any book title from your dataset
+target_book = 'Don Quixote'  # Replace with any book title from your dataset
 recommended_books = recommend_books(target_book)
 
 print(f"Recommended books for '{target_book}':")
