@@ -6,18 +6,24 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\BookResource;
 
 class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
-        return response()->json(['books' => $books], 200);
+        $books = Book::get();
+        if($books->count()>0){
+        return BookResource::collection($books);
+        }else{
+            return response()->json(['message'=>'No Record Available'],200);
+        }
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $validator = Validator::make($request->all(),[
             'book_name' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'published_date' => 'required|date',
@@ -26,14 +32,28 @@ class BookController extends Controller
             'rating' => 'required|numeric|between:0,5',
         ]);
 
+        if ($validator->fails()){
+            return response()->json(['message' => 'Something Went Wrong, Try Again!', 
+            'error'=> $validator->messages(),
+        422]);
+        }
         if ($request->hasFile('book_image')) {
             $filePath = $request->file('book_image')->store('books', 'public');
-            $validatedData['book_image'] = $filePath;
+            $validator['book_image'] = $filePath;
         }
 
-        $book = Book::create($validatedData);
+        $book = Book::create([
+            'book_name' => $request->book_name,
+            'author' => $request->author,
+            'published_date' => $request->published_date,
+            'book_image' => $request->book_image,
+            'genres' => $request->genres,
+            'rating' => $request->rating,
+        ]);
 
-        return response()->json(['message' => 'Book created successfully', 'book' => $book], 201);
+        return response()->json(['message' => 'Book Added Successfully', 
+        'data' =>new BookResource($book)], 
+        200);
     }
 
     public function show($id)
@@ -55,7 +75,7 @@ class BookController extends Controller
             return response()->json(['message' => 'Book not found'], 404);
         }
 
-        $validatedData = $request->validate([
+        $validator = $request->validate([
             'book_name' => 'sometimes|required|string|max:255',
             'author' => 'sometimes|required|string|max:255',
             'published_date' => 'sometimes|required|date',
@@ -69,10 +89,10 @@ class BookController extends Controller
                 Storage::disk('public')->delete($book->book_image);
             }
             $filePath = $request->file('book_image')->store('books', 'public');
-            $validatedData['book_image'] = $filePath;
+            $validator['book_image'] = $filePath;
         }
 
-        $book->update($validatedData);
+        $book->update($validator);
 
         return response()->json(['message' => 'Book updated successfully', 'book' => $book], 200);
     }
