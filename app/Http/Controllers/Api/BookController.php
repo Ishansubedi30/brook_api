@@ -37,6 +37,7 @@ class BookController extends Controller
             'error'=> $validator->messages(),
         422]);
         }
+        
         if ($request->hasFile('book_image')) {
             $filePath = $request->file('book_image')->store('books', 'public');
             $validator['book_image'] = $filePath;
@@ -59,13 +60,16 @@ class BookController extends Controller
     public function show($id)
     {
         $book = Book::find($id);
-
+    
         if (!$book) {
-            return response()->json(['message' => 'Book not found'], 404);
+            return response()->json([
+                'error' => 'Book not found',
+            ], 404);
         }
-
-        return response()->json(['book' => $book], 200);
+    
+        return new BookResource($book);
     }
+    
 
     public function update(Request $request, $id)
     {
