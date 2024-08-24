@@ -17,6 +17,5 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
         ]);
 
-        cache()->flush();
     }
 }

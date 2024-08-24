@@ -14,18 +14,20 @@ Route::get('/user', function(Request $request){
 })->middleware('auth:sanctum');
 
 // Admins routes
-// Route::get('/admins', [AdminController::class, 'index']);
-// Route::post('/admins', [AdminController::class, 'store']);
-// Route::get('/admins/{id}', [AdminController::class, 'show']);
-// Route::put('/admins/{id}', [AdminController::class, 'update']);
-// Route::delete('/admins/{id}', [AdminController::class, 'destroy']);
+Route::get('/admins', [AdminController::class, 'index']);
+Route::post('/admins', [AdminController::class, 'store']);
+Route::get('/admins/{id}', [AdminController::class, 'show']);
+Route::put('/admins/{id}', [AdminController::class, 'update']);
+Route::delete('/admins/{id}', [AdminController::class, 'destroy']);
 
 // Readers routes
-// Route::get('/readers', [ReaderController::class, 'index']);
-// Route::post('/readers', [ReaderController::class, 'store']);
-// Route::get('/readers/{id}', [ReaderController::class, 'show']);
-// Route::put('/readers/{id}', [ReaderController::class, 'update']);
-// Route::delete('/readers/{id}', [ReaderController::class, 'destroy']);
+Route::get('/readers', [ReaderController::class, 'index']);
+Route::post('/readers', [ReaderController::class, 'store']);
+Route::get('/readers/{id}', [ReaderController::class, 'show']);
+Route::put('/readers/{id}', [ReaderController::class, 'update']);
+Route::delete('/readers/{id}', [ReaderController::class, 'destroy']);
+Route::post('/login', [ReaderController::class, 'login']);
+
 
 // Books routes
 // Route::get('/books', [BookController::class, 'index']);
@@ -35,15 +37,19 @@ Route::get('/user', function(Request $request){
 // Route::delete('/books/{id}', [BookController::class, 'destroy']);
 
 // Book File routes
-// Route::get('/bookfiles', [BookFileController::class, 'index']);
-// Route::post('/bookfiles', [BookFileController::class, 'store']);
-// Route::get('/bookfiles/{id}', [BookFileController::class, 'show']);
-// Route::put('/bookfiles/{id}', [BookFileController::class, 'update']);
-// Route::delete('/bookfiles/{id}', [BookFileController::class, 'destroy']);
+Route::get('/bookfiles', [BookFileController::class, 'index']);
+Route::post('/bookfiles', [BookFileController::class, 'store']);
+Route::get('/bookfiles/{id}', [BookFileController::class, 'show']);
+Route::put('/bookfiles/{id}', [BookFileController::class, 'update']);
+Route::delete('/bookfiles/{id}', [BookFileController::class, 'destroy']);
 
 // Analytics routes
-// Route::get('/analytics', [AnalyticsController::class, 'index']);
-// Route::post('/analytics', [AnalyticsController::class, 'store']);
-// Route::get('/analytics/{id}', [AnalyticsController::class, 'show']);
-// Route::put('/analytics/{id}', [AnalyticsController::class, 'update']);
-// Route::delete('/analytics/{id}', [AnalyticsController::class, 'destroy']);
+Route::get('/analytics', [AnalyticsController::class, 'index']);
+Route::post('/analytics', [AnalyticsController::class, 'store']);
+Route::get('/analytics/{id}', [AnalyticsController::class, 'show']);
+Route::put('/analytics/{id}', [AnalyticsController::class, 'update']);
+Route::delete('/analytics/{id}', [AnalyticsController::class, 'destroy']);
+
+
+Route::middleware(['web'])->group(function () {
+});

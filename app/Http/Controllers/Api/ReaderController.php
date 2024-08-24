@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Reader;
 use App\Http\Controllers\Controller;
 
@@ -68,5 +70,43 @@ class ReaderController extends Controller
         $reader->delete();
 
         return response()->json(['message' => 'Reader deleted successfully'], 200);
+    }
+
+    public function login(Request $request)
+    {
+        // Validate the incoming request data
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        // Return validation errors if any
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => $validator->errors()->first(),
+            ], 400);
+        }
+
+        // Extract data from request
+        $credentials = $request->only('username', 'password');
+
+        // Attempt to authenticate the user
+        if (Auth::attempt($credentials)) {
+            $user = Auth::reader();
+            // Include user role or other relevant data
+            return response()->json([
+                'message' => 'Login successful',
+                'user' => [
+                    'id' => $user->id,
+                    'username' => $user->username,
+                    'isAdmin' => $user->is_admin, // Assuming `is_admin` is a column in your users table
+                ],
+            ], 200);
+        }
+
+        // Authentication failed
+        return response()->json([
+            'message' => 'Invalid credentials',
+        ], 401);
     }
 }
