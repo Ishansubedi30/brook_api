@@ -30,11 +30,11 @@ Route::post('/login', [ReaderController::class, 'login']);
 
 
 // Books routes
-// Route::get('/books', [BookController::class, 'index']);
-// Route::post('/books', [BookController::class, 'store']);
-// Route::get('/books/{id}', [BookController::class, 'show']);
-// Route::put('/books/{id}', [BookController::class, 'update']);
-// Route::delete('/books/{id}', [BookController::class, 'destroy']);
+Route::get('/books', [BookController::class, 'index']);
+Route::post('/books', [BookController::class, 'store']);
+Route::get('/books/{id}', [BookController::class, 'show']);
+Route::put('/books/{id}', [BookController::class, 'update']);
+Route::delete('/books/{id}', [BookController::class, 'destroy']);
 
 // Book File routes
 Route::get('/bookfiles', [BookFileController::class, 'index']);

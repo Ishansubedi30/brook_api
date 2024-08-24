@@ -72,6 +72,8 @@ class ReaderController extends Controller
         return response()->json(['message' => 'Reader deleted successfully'], 200);
     }
 
+    
+    
     public function login(Request $request)
     {
         // Validate the incoming request data
@@ -79,34 +81,39 @@ class ReaderController extends Controller
             'username' => 'required|string',
             'password' => 'required|string',
         ]);
-
+    
         // Return validation errors if any
         if ($validator->fails()) {
             return response()->json([
                 'message' => $validator->errors()->first(),
             ], 400);
         }
-
+    
         // Extract data from request
         $credentials = $request->only('username', 'password');
-
+    
         // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
-            $user = Auth::reader();
-            // Include user role or other relevant data
+            $user = Auth::user();
+            $token = $user->createToken('YourAppName')->plainTextToken; // Generate token
+    
+            // Return response with user details and token
             return response()->json([
                 'message' => 'Login successful',
+                'token' => $token,
                 'user' => [
                     'id' => $user->id,
                     'username' => $user->username,
-                    'isAdmin' => $user->is_admin, // Assuming `is_admin` is a column in your users table
+                    'isAdmin' => $user->is_admin,
                 ],
             ], 200);
         }
-
+    
         // Authentication failed
         return response()->json([
             'message' => 'Invalid credentials',
         ], 401);
     }
+    
+    
 }

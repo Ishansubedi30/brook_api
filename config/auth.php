@@ -116,7 +116,7 @@ return [
     'users' => [
         'driver' => 'eloquent',
         'model' => App\Models\Reader::class,
-        'table' => 'users',
+        'table' => 'readers',
     ],
 ],
 

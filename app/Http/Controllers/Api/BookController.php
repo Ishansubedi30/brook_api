@@ -70,36 +70,43 @@ class BookController extends Controller
         return new BookResource($book);
     }
     
-
     public function update(Request $request, $id)
     {
+        // Find the book by ID
         $book = Book::find($id);
-
+    
         if (!$book) {
             return response()->json(['message' => 'Book not found'], 404);
         }
-
+    
+        // Validate the request data
         $validator = $request->validate([
-            'book_name' => 'sometimes|required|string|max:255',
-            'author' => 'sometimes|required|string|max:255',
-            'published_date' => 'sometimes|required|date',
+            'book_name' => 'nullable|string|max:255',
+            'author' => 'nullable|string|max:255',
+            'published_date' => 'nullable|date',
             'book_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'genres' => 'sometimes|required|in:Fiction,Non-fiction,Fantasy,Sci-fi,Mystery,Romance',
-            'rating' => 'sometimes|required|numeric|between:0,5',
+            'genres' => 'nullable|in:Fiction,Non-fiction,Fantasy,Sci-fi,Mystery,Romance',
+            'rating' => 'nullable|numeric|between:0,5',
         ]);
-
+    
+        // Check if there's a new book image file in the request
         if ($request->hasFile('book_image')) {
+            // Delete the old book image if it exists
             if ($book->book_image) {
                 Storage::disk('public')->delete($book->book_image);
             }
+    
+            // Store the new book image and update the file path in the validator array
             $filePath = $request->file('book_image')->store('books', 'public');
             $validator['book_image'] = $filePath;
         }
-
+    
+        // Update the book with the validated data
         $book->update($validator);
-
+    
         return response()->json(['message' => 'Book updated successfully', 'book' => $book], 200);
     }
+    
 
     public function destroy($id)
     {

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('countrycode');
             $table->string('mobile_number');
-            $table->binary('is_admin')->nullable();
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }
